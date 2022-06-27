@@ -18,8 +18,10 @@ const errorMiddleware = require('./middlewares/errors')
 //import all routes 
 const categories = require('./routes/category')
 const auth = require('./routes/auth')
+const product = require('./routes/product')
 app.use('/api/v1' , categories)
 app.use('/api/v1' , auth)
+app.use('/api/v1', product)
 
 // Middleware to handle errors
 app.use(errorMiddleware)

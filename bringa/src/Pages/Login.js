@@ -14,17 +14,18 @@ const Login = ({ history }) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const { isAuthentificated , error, loading } = useSelector(state => state.auth )
+    const { isAuthenticated , error, loading } = useSelector(state => state.auth )
     useEffect(() => {
-            if(isAuthentificated){
-              navigate('/me')
+            if(isAuthenticated){
+              navigate('/categorie')
             }
+            
 
             if(error ){
                 alert.error(error)
                 dispatch(clearErrors())
             }
-    }, [dispatch, alert,  isAuthentificated, error, history])
+    }, [dispatch, alert,  isAuthenticated, error, history])
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(login(email, password))

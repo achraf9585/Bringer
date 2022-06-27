@@ -38,7 +38,7 @@ import { logoutUser } from '../actions/userActions'
           </Link>
         </li>
         <li>
-          <Link to={'/produit'} >
+          <Link to={'/produits'} >
             <div class="parent-icon">
               <i class="bx bx-restaurant"></i>
             </div>

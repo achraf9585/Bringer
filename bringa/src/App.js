@@ -16,6 +16,10 @@ import ForgotPassword from './Pages/ForgotPassword';
 import NewPassword from './Pages/NewPassword';
 import NewCategory from './Pages/NewCategory';
 import UpdateCategory from './Pages/UpdateCategory';
+import Products from './Pages/boutique/products/Products';
+import ProductDetails from './Pages/boutique/products/ProductDetails';
+import NewProduct from './Pages/boutique/products/NewProduct';
+import UpdateProduct from './Pages/boutique/products/UpdateProduct';
 
 function App() {
 
@@ -48,7 +52,10 @@ function App() {
 
         <Route exact path="/password/update"  element={<UpdatePassword/>} />
 
-
+        <Route exact path="/produits" element={<Products/>} />
+        <Route exact path="/produit/:id"  element={<ProductDetails/>}   />
+        <Route exact path="/produit/add"  element={<NewProduct/>}   />
+        <Route exact path="/produit/update/:id"  element={<UpdateProduct/>}   />
           </Route>
 
     

@@ -1,10 +1,22 @@
-import React , {Fragment} from 'react'
+import React , {Fragment, useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { getCategories } from '../actions/categoryActions'
+import { getProducts } from '../actions/productActions'
 import Footer from '../Components/Footer'
 import Header from '../Components/Header'
 import MetaData from '../Components/MetaData'
 
 
 const Home = () => {
+  const dispatch = useDispatch()
+  const {productss}  = useSelector(state => state.products)
+  const {categoriess}   = useSelector(state => state.categories)
+
+  useEffect(() => {
+    dispatch(getCategories())
+    dispatch(getProducts())
+  }, [dispatch])
   return (
 	  <Fragment>
 <MetaData title={'Acceuil Boutique '} />
@@ -48,8 +60,8 @@ const Home = () => {
                   <i class="bi bi-basket2-fill"></i>
                 </div>
                 <div class="text-center mt-3">
-                  <h3 class="text-dark mb-1">4.6K</h3>
-                  <p class="text-muted mb-4">Total Orders</p>
+                  <h3 class="text-dark mb-1">{categoriess && categoriess.length}</h3>
+                  <p class="text-muted mb-4">Total Categories</p>
                   <p class="text-dark mb-0 font-13"><i class="bi bi-arrow-up"></i><span>45.5%</span></p>
                 </div>
               </div>
@@ -62,8 +74,8 @@ const Home = () => {
                   <i class="bi bi-wallet-fill"></i>
                 </div>
                 <div class="text-center mt-3">
-                  <h3 class="text-dark mb-1">$25M</h3>
-                  <p class="text-muted mb-4">Total Income</p>
+                  <h3 class="text-dark mb-1">{productss && productss.length}</h3>
+                  <p class="text-muted mb-4">Total Produits</p>
                   <p class="text-dark mb-0 font-13"><i class="bi bi-arrow-up"></i><span>24.5%</span></p>
                 </div>
               </div>
